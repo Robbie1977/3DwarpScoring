@@ -17,7 +17,7 @@ else:
                                       
     r=np.sum(np.multiply(Nd1,Nd2))/np.sqrt(np.multiply(np.sum(np.square(Nd1)),np.sum(np.square(Nd2))))
       
-    print 'The alignment has a overlap coefficient value of:%0.60f (1=perfect)'% r
+    print 'The alignment has a overlap coefficient value of: %0.60f (1=perfect)'% r
     
     print 'Outputing results to ', str(sys.argv[3])
     
