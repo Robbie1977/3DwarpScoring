@@ -18,7 +18,7 @@ else:
                                         
     r=np.sum(np.multiply(np.subtract(Nd1,((np.size(Nd1)+1)/2)),np.subtract(Nd2,((np.size(Nd2)+1)/2))))/np.sqrt(np.multiply(np.sum(np.square(np.subtract(Nd1,((np.size(Nd1)+1)/2)))),np.sum(np.square(np.subtract(Nd2,((np.size(Nd2)+1)/2))))))
     
-    print 'The alignment has a Spearman Coefficient r value of:%0.60f (1=perfect)'% r
+    print 'The alignment has a Spearman Coefficient r value of: %0.60f (1=perfect)'% r
     
     print 'Outputing results to ', str(sys.argv[3])
     
