@@ -1,7 +1,6 @@
 import numpy as np
 import sys
 import nrrd
-import scipy.stats
 
 if (len(sys.argv) < 4):
     print 'Error: missing arguments!'
