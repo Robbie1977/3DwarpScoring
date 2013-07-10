@@ -15,8 +15,16 @@ else:
     
     Nd1 = np.squeeze(np.asarray(data1,dtype=np.float128))
     Nd2 = np.squeeze(np.asarray(data2,dtype=np.float128))
+    
+    th = 0
+    
+    for i in range(0,size(Nd1)):
+        if ((Nd1[i] > th) or (Nd2 > th)):
+            Na1[i] = Nd1[i]
+            Na2[i] = Nd2[i]
+            
                                         
-    r=np.sum(np.multiply(np.subtract(Nd1,np.average(Nd1)),np.subtract(Nd2,np.average(Nd2))))/np.sqrt(np.multiply(np.sum(np.square(np.subtract(Nd1,np.average(Nd1)))),np.sum(np.square(np.subtract(Nd2,np.average(Nd2))))))
+    r=np.sum(np.multiply(np.subtract(Nd1,np.average(Na1)),np.subtract(Nd2,np.average(Na2))))/np.sqrt(np.multiply(np.sum(np.square(np.subtract(Nd1,np.average(Na1)))),np.sum(np.square(np.subtract(Nd2,np.average(Na2))))))
       
     print 'The alignment has a Object Pearson\'s Coefficient r value of: %0.60f (1=perfect)'% r
     
