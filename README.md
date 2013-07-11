@@ -18,8 +18,11 @@ Score, Methord, AlignedImage.nrrd,Template.nrrd
 Analysis methords available are:
 
 Overlap coefficient - OverlapCoeff.py
+
 Pearson's coefficient - PearsonCoeff.py
+
 Object Pearson's coefficient - ObjPearsonCoeff.py
+
 Spearman coefficient - SpearmanCoeff.py
 
 RMS difference - Quality.py
