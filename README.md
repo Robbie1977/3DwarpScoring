@@ -27,6 +27,6 @@ Analysis methords available are:
 
   RMS difference - Quality.py
 
-coefficient scores are all 1-perfect 0-no correlation also with Pearson methords returing -1 if anticorrelated.
+coefficient scores are all 1=perfect, 0=no correlation and with Pearson methords also returing -1 if anticorrelated.
 
 RMSd returns a value that can only be compared when the same template is used. With 0 being bad and a good value range having to be experimentally estimated on the images used.
