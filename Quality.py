@@ -41,7 +41,7 @@ else:
     print 'Outputing results to ', str(sys.argv[3])
     
     with open(str(sys.argv[3]), "a") as myfile: 
-        myfile.write(str(r1) + ', RMS Diff, ' + str(sys.argv[1]).trim + ', ' + str(sys.argv[2]) + '\n')
+        myfile.write(str(r1) + ', RMS Diff, ' + str(sys.argv[1]) + ', ' + str(sys.argv[2]) + '\n')
     
     print 'Done.'
     
