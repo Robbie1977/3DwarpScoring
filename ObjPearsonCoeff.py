@@ -18,42 +18,30 @@ else:
         
     data2, header2 = nrrd.read(str(sys.argv[1])) 
     
-    Nd1 = np.squeeze(np.asarray(data1.flat,dtype=np.float128))
-    Nd2 = np.squeeze(np.asarray(data2.flat,dtype=np.float128))
+    if (data1.size <> data2.size):
+        print '\n\nError: Images must be the same size!!'
+    else:
     
-    th = 0
-    
-    Ta = np.add(Nd1, Nd2)
-    Os = len([x for x in Ta if x > th])
-    
-    
-    Na1 = np.divide(np.sum(Nd1),Os)
-    Na2 = np.divide(np.sum(Nd2),Os)
-    
-    #
-    #u = 0
-    #for i in range(0,np.size(Nd1)):
-    #    if ((Nd1[i] > th) or (Nd2[i] > th)):
-    #        Na1 = np.append(Na1,Nd1[i])
-    #        Na2 = np.append(Na2,Nd2[i])
-    #        if (u < 1):
-    #            sys.stdout.write('\r')
-    #            # the exact output you're looking for:
-    #            sys.stdout.write("[%-20s] %d%%" % ('='*int(round(((float(i)/Nd1.size)*100)/5)), round((float(i)/Nd1.size)*100)))
-    #            sys.stdout.flush()
-    #            u = round(Nd1.size/100)
-    #        else:
-    #            u -=1
-                                        
-    r=np.sum(np.multiply(np.subtract(Nd1,Na1),np.subtract(Nd2,Na2)))/np.sqrt(np.multiply(np.sum(np.square(np.subtract(Nd1,Na1))),np.sum(np.square(np.subtract(Nd2,Na2)))))
-      
-    print 'The alignment has a Object Pearson\'s Coefficient r value of: %0.60f (1=perfect)'% r
-    
-    print 'Outputing results to ', str(sys.argv[3])
-    
-    with open(str(sys.argv[3]), "a") as myfile: 
-        myfile.write('{0:.100f}'.format(r) + ', Object Pearson Coefficent, ' + str(sys.argv[1]) + ', ' + str(sys.argv[2]) + '\n')
-    
-    print 'Done.'
-    
+        Nd1 = np.squeeze(np.asarray(data1.flat,dtype=np.float128))
+        Nd2 = np.squeeze(np.asarray(data2.flat,dtype=np.float128))
+        
+        th = 0
+        
+        Ta = np.add(Nd1, Nd2)
+        Os = len([x for x in Ta if x > th])
+        
+        Na1 = np.divide(np.sum(Nd1),Os)
+        Na2 = np.divide(np.sum(Nd2),Os)
+                                            
+        r=np.sum(np.multiply(np.subtract(Nd1,Na1),np.subtract(Nd2,Na2)))/np.sqrt(np.multiply(np.sum(np.square(np.subtract(Nd1,Na1))),np.sum(np.square(np.subtract(Nd2,Na2)))))
+        
+        print 'The alignment has a Object Pearson\'s Coefficient r value of: %0.60f (1=perfect)'% r
+        
+        print 'Outputing results to ', str(sys.argv[3])
+        
+        with open(str(sys.argv[3]), "a") as myfile: 
+            myfile.write('{0:.100f}'.format(r) + ', Object Pearson Coefficent, ' + str(sys.argv[1]) + ', ' + str(sys.argv[2]) + '\n')
+        
+        print 'Done.'
+        
   

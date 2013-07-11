@@ -12,19 +12,23 @@ else:
         
     data2, header2 = nrrd.read(str(sys.argv[1])) 
     
-    Nd1 = np.squeeze(np.asarray(data1,dtype=np.float128))
-    Nd2 = np.squeeze(np.asarray(data2,dtype=np.float128))
-                                        
-    r=np.sum(np.multiply(np.subtract(Nd1,np.average(Nd1)),np.subtract(Nd2,np.average(Nd2))))/np.sqrt(np.multiply(np.sum(np.square(np.subtract(Nd1,np.average(Nd1)))),np.sum(np.square(np.subtract(Nd2,np.average(Nd2))))))
-      
-    print 'The alignment has a Pearson\'s Coefficient r value of: %0.60f (1=perfect)'% r
+    if (data1.size <> data2.size):
+        print '\n\nError: Images must be the same size!!'
+    else:
     
-    print 'Outputing results to ', str(sys.argv[3])
-    
-    with open(str(sys.argv[3]), "a") as myfile: 
-        myfile.write('{0:.100f}'.format(r) + ', Pearson Coefficent, ' + str(sys.argv[1]) + ', ' + str(sys.argv[2]) + '\n')
-    
-    print 'Done.'
-    
+        Nd1 = np.squeeze(np.asarray(data1,dtype=np.float128))
+        Nd2 = np.squeeze(np.asarray(data2,dtype=np.float128))
+                                            
+        r=np.sum(np.multiply(np.subtract(Nd1,np.average(Nd1)),np.subtract(Nd2,np.average(Nd2))))/np.sqrt(np.multiply(np.sum(np.square(np.subtract(Nd1,np.average(Nd1)))),np.sum(np.square(np.subtract(Nd2,np.average(Nd2))))))
+        
+        print 'The alignment has a Pearson\'s Coefficient r value of: %0.60f (1=perfect)'% r
+        
+        print 'Outputing results to ', str(sys.argv[3])
+        
+        with open(str(sys.argv[3]), "a") as myfile: 
+            myfile.write('{0:.100f}'.format(r) + ', Pearson Coefficent, ' + str(sys.argv[1]) + ', ' + str(sys.argv[2]) + '\n')
+        
+        print 'Done.'
+        
   
 
