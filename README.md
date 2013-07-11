@@ -6,26 +6,26 @@ Scripts to assess 3D confocal image warping towards a template image.
 
 all run as:
 
-python scriptname.py AlignedImage.nrrd Template.nrrd Results.csv
+  python scriptname.py AlignedImage.nrrd Template.nrrd Results.csv
 
 
 
 Results can be combined or sent to individual files and consist of:
 
-Score, Methord, AlignedImage.nrrd,Template.nrrd
+  Score, Methord, AlignedImage.nrrd,Template.nrrd
 
 
 Analysis methords available are:
 
-Overlap coefficient - OverlapCoeff.py
+  Overlap coefficient - OverlapCoeff.py
 
-Pearson's coefficient - PearsonCoeff.py
+  Pearson's coefficient - PearsonCoeff.py
 
-Object Pearson's coefficient - ObjPearsonCoeff.py
+  Object Pearson's coefficient - ObjPearsonCoeff.py
 
-Spearman coefficient - SpearmanCoeff.py
+  Spearman coefficient - SpearmanCoeff.py
 
-RMS difference - Quality.py
+  RMS difference - Quality.py
 
 coefficient scores are all 1-perfect 0-no correlation also with Pearson methords returing -1 if anticorrelated.
 
