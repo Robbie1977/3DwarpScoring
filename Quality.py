@@ -2,7 +2,7 @@ import numpy as np
 import sys
 import nrrd
 
-if (len(sys.argv) < 3):
+if (len(sys.argv) < 4):
     print 'Error: missing arguments!'
 else:
 
