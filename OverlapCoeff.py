@@ -40,7 +40,7 @@ else:
         
             print 'Done.'
         else:    
-            print '%0.100f'% r
+            print '%0.60f'% r
         
   
 
