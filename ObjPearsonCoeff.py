@@ -5,6 +5,7 @@ import nrrd
 
 if (len(sys.argv) < 4):
     print 'Error: missing arguments!'
+    print 'e.g. python [measure].py image.nrrd template.nrrd results.csv'
 else:
 
     print 'Checking alignment for ', str(sys.argv[1]), ' against the template (', str(sys.argv[2]), ')...'

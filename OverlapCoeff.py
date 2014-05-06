@@ -4,6 +4,7 @@ import nrrd
 
 if (len(sys.argv) < 4):
     print 'Error: missing arguments!'
+    print 'e.g. python [measure].py image.nrrd template.nrrd results.csv'
 else:
     
     quiet = False
