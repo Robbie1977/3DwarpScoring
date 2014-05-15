@@ -1,9 +1,16 @@
 import nrrd, os, glob, sys, csv
 import xscore
 
-data1, header1 = nrrd.read('/Volumes/Macintosh HD/Users/robertcourt/BTSync/usedtemplate.nrrd')
-template = xscore.xslice(data1)
-del data1, header1
+if os.path.isfile('/Volumes/Macintosh HD/Users/robertcourt/BTSync/usedtemplate.nrrd'):
+    data1, header1 = nrrd.read('/Volumes/Macintosh HD/Users/robertcourt/BTSync/usedtemplate.nrrd')
+    template = xscore.xslice(data1)
+    del data1, header1
+elif os.path.isfile('/disk/data/VFBTools/Alignment/template/flyVNCtemplate20xA.nrrd'):
+    data1, header1 = nrrd.read('/disk/data/VFBTools/Alignment/template/flyVNCtemplate20xA.nrrd')
+    template = xscore.xslice(data1)
+    del data1, header1
+else:
+    print 'Template file missing!'
 
 def rateAll(path,match="*BG*.nrrd",results="./OverlapResults.csv"):
     r=[]
