@@ -20,6 +20,8 @@ def rateAll(path,match="*BG*.nrrd",results="./OverlapResults.csv"):
         del alignment
     return r
         
-#rateAll("/Volumes/Data0/BTDataSync/NewLineageScans/Aligned",results="/Volumes/Macintosh HD/Users/robertcourt/BTSync/xscore.csv")
+#out = rateAll("/Volumes/Data0/BTDataSync/NewLineageScans/Aligned/failed",results="/Volumes/Macintosh HD/Users/robertcourt/BTSync/failed-xscore.csv")
 
-out = rateAll("/Volumes/Data0/BTDataSync/NewLineageScans/Aligned",results=None)
+#out = rateAll("/Volumes/Data0/BTDataSync/NewLineageScans/Aligned",results=None)
+
+#print 'Done.'
