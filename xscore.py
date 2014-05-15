@@ -1,8 +1,8 @@
 import nrrd
 import sys, warnings
 from numpy import int,round,linspace, newaxis, shape, array, uint32, uint8, max, sqrt, abs, mean, dtype, int32, add, divide, subtract, sum
-from matplotlib.pyplot import imshow, figure, show, colorbar
-import matplotlib.cm as cm
+#from matplotlib.pyplot import imshow, figure, show, colorbar
+#import matplotlib.cm as cm
 
 def xslice(data):
     """Returns two stacked diagonal slices through a 3d image array."""
