@@ -26,9 +26,11 @@ def rateAll(path,match="*BG*.nrrd",results="./OverlapResults.csv"):
                 spamwriter.writerow([path,os.path.basename(file),"xscore",r[-1][1],r[-1][2]])
         del alignment
     return r
-        
+
 #out = rateAll("/Volumes/Data0/BTDataSync/NewLineageScans/Aligned/failed",results="/Volumes/Macintosh HD/Users/robertcourt/BTSync/failed-xscore.csv")
 
 #out = rateAll("/Volumes/Data0/BTDataSync/NewLineageScans/Aligned",results=None)
+
+print 'example: out = rateAll("/Volumes/Data0/BTDataSync/NewLineageScans/Aligned",results="/Volumes/Data0/BTDataSync/NewLineageScans/Aligned/aligned-xscore.csv")'
 
 #print 'Done.'
