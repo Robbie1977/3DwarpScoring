@@ -12,7 +12,7 @@ def xslice(data):
     x=array([round(i) for i in linspace(0,shape(data)[1]-1,l)],dtype=uint32)
     a = data[y,x,:]
     b = data[y[::-1],x,:]
-    
+
     return array([a,b])
 
 def RMSdiff(data1,data2):
@@ -21,15 +21,13 @@ def RMSdiff(data1,data2):
 
 def OverlapCoeff(data1,data2):
     """Returns the Overlap Coefficent between two images."""
-    return sum(data1*(data2+0.0))/sqrt(sum(data1**2.0)*sum(data2**2.0))
+    
+    return (sum(data1*data2))/(sqrt(sum(data1**2)*sum(data2**2)+0.0))
 
 def symTest(function,data):
-    """Applies the given function to the diagonal slices output from xslice. Can be used to assess the symetry of a 3D image using a comparison function such as OverlapCoeff.""" 
+    """Applies the given function to the diagonal slices output from xslice. Can be used to assess the symetry of a 3D image using a comparison function such as OverlapCoeff."""
     if data.ndim < 3:
         warnings.warn("must be used with data output from xslice", SyntaxWarning)
         return False
     else:
         return function(data[0],data[1])
-
-
-

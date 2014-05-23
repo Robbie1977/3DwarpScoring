@@ -25,11 +25,11 @@ def rateAll(path,match="*BG*.nrrd",results="./OverlapResults.csv"):
         yalignment = slicescore.ysampleslice(data2)
         xalignment = slicescore.xsampleslice(data2)
         del data2, header2
-        r.append((os.path.basename(file),xscore.symTest(xscore.OverlapCoeff,xalignment),xscore.OverlapCoeff(xtemplate,xalignment),slicescore.OverlapCoeff(ztemplate,zalignment),slicescore.OverlapCoeff(ytemplate,yalignment),slicescore.OverlapCoeff(xtemplate,xalignment)))
+        r.append((os.path.basename(file),xscore.symTest(slicescore.OverlapCoeff,xalignment),slicescore.OverlapCoeff(xtemplate,xalignment),slicescore.OverlapCoeff(ztemplate,zalignment),slicescore.OverlapCoeff(ytemplate,yalignment),slicescore.OverlapCoeff(xtemplate,xalignment)))
         if not results==None:
             with open(results, 'a') as csvfile:
                 spamwriter = csv.writer(csvfile)
-                spamwriter.writerow([path,os.path.basename(file),"xscore",r[-1][1],r[-1][2],r[-1][3]r[-1][4]r[-1][5]])
+                spamwriter.writerow([path,r[-1][0],"[Symmetry,Diagonal,Zsample,Ysample,Xsample,Final]score",r[-1][1],r[-1][2],r[-1][3],r[-1][4],r[-1][5],min(r[-1][1:])])
         del xalignment
     return r
 
