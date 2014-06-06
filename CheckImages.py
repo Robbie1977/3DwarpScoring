@@ -26,7 +26,7 @@ def rateAll(path,match="*BG*.nrrd",results="./OverlapResults.csv"):
         yalignment = slicescore.ysampleslice(data2)
         xalignment = slicescore.xsampleslice(data2)
         del data2, header2
-        r.append((os.path.basename(file),xscore.symTest(slicescore.meanOverlapCoeff,calignment),slicescore.meanOverlapCoeff(ctemplate,calignment),slicescore.meanOverlapCoeff(ztemplate,zalignment),slicescore.meanOverlapCoeff(ytemplate,yalignment),slicescore.meanOverlapCoeff(xtemplate,xalignment)))
+        r.append((os.path.basename(file),xscore.symTest(slicescore.avgOverlapCoeff,calignment),slicescore.avgOverlapCoeff(ctemplate,calignment),slicescore.avgOverlapCoeff(ztemplate,zalignment),slicescore.avgOverlapCoeff(ytemplate,yalignment),slicescore.avgOverlapCoeff(xtemplate,xalignment)))
         if not results==None:
             with open(results, 'a') as csvfile:
                 spamwriter = csv.writer(csvfile)
@@ -46,7 +46,7 @@ def rateOne(file,results="./OverlapResults.csv"):
       yalignment = slicescore.ysampleslice(data2)
       xalignment = slicescore.xsampleslice(data2)
       del data2, header2
-      r = np.min(np.array([xscore.symTest(slicescore.OverlapCoeff,calignment),slicescore.meanOverlapCoeff(ctemplate,calignment),slicescore.meanOverlapCoeff(ztemplate,zalignment),slicescore.meanOverlapCoeff(ytemplate,yalignment),slicescore.meanOverlapCoeff(xtemplate,xalignment)]))
+      r = np.min(np.array([xscore.symTest(slicescore.OverlapCoeff,calignment),slicescore.avgOverlapCoeff(ctemplate,calignment),slicescore.avgOverlapCoeff(ztemplate,zalignment),slicescore.avgOverlapCoeff(ytemplate,yalignment),slicescore.avgOverlapCoeff(xtemplate,xalignment)]))
       if not results==None:
         with open(results, 'a') as csvfile:
           spamwriter = csv.writer(csvfile)
