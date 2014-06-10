@@ -16,7 +16,7 @@ if not data1==[]:
     xtemplate = slicescore.xsampleslice(data1)
     del data1, header1
 
-def rateAll(path,match="*BG*.nrrd",results="./OverlapResults.csv"):
+def rateAll(path,match="*BG*.nrrd",results="./OverlapResults.csv", methord=slicescore.OverlapCoeff):
     r=[]
     for file in glob.glob(path + os.sep + match):
         print "testing:" + os.path.basename(file)
@@ -26,7 +26,7 @@ def rateAll(path,match="*BG*.nrrd",results="./OverlapResults.csv"):
         yalignment = slicescore.ysampleslice(data2)
         xalignment = slicescore.xsampleslice(data2)
         del data2, header2
-        r.append((os.path.basename(file),xscore.symTest(slicescore.avgOverlapCoeff,calignment),slicescore.avgOverlapCoeff(ctemplate,calignment),slicescore.avgOverlapCoeff(ztemplate,zalignment),slicescore.avgOverlapCoeff(ytemplate,yalignment),slicescore.avgOverlapCoeff(xtemplate,xalignment)))
+        r.append((os.path.basename(file),xscore.symTest(methord,calignment),methord(ctemplate,calignment),methord(ztemplate,zalignment),methord(ytemplate,yalignment),methord(xtemplate,xalignment)))
         if not results==None:
             with open(results, 'a') as csvfile:
                 spamwriter = csv.writer(csvfile)
@@ -36,7 +36,7 @@ def rateAll(path,match="*BG*.nrrd",results="./OverlapResults.csv"):
       print 'no files found matching: ' + path + match
     return r
 
-def rateOne(file,results="./OverlapResults.csv"):
+def rateOne(file,results="./OverlapResults.csv", methord=slicescore.OverlapCoeff):
     r=np.float128(0.0)
     if os.path.isfile(file):
       print "testing:" + os.path.basename(file)
@@ -46,7 +46,7 @@ def rateOne(file,results="./OverlapResults.csv"):
       yalignment = slicescore.ysampleslice(data2)
       xalignment = slicescore.xsampleslice(data2)
       del data2, header2
-      r = np.min(np.array([xscore.symTest(slicescore.OverlapCoeff,calignment),slicescore.avgOverlapCoeff(ctemplate,calignment),slicescore.avgOverlapCoeff(ztemplate,zalignment),slicescore.avgOverlapCoeff(ytemplate,yalignment),slicescore.avgOverlapCoeff(xtemplate,xalignment)]))
+      r = np.min(np.array([xscore.symTest(slicescore.OverlapCoeff,calignment),methord(ctemplate,calignment),methord(ztemplate,zalignment),methord(ytemplate,yalignment),methord(xtemplate,xalignment)]))
       if not results==None:
         with open(results, 'a') as csvfile:
           spamwriter = csv.writer(csvfile)

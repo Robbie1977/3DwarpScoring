@@ -45,7 +45,9 @@ def OverlapCoeff(data1,data2):
     """Returns the Overlap Coefficent between two images."""
     Nd1 = squeeze(asarray(data1,dtype=float128))
     Nd2 = squeeze(asarray(data2,dtype=float128))
-    return sum(multiply(Nd1,Nd2))/sqrt(multiply(sum(square(Nd1)),sum(square(Nd2))))
+    R = sum(multiply(Nd1,Nd2))/sqrt(multiply(sum(square(Nd1)),sum(square(Nd2))))
+    print R
+    return R
 
 def minOverlapCoeff(data1,data2):
     """Returns the min Overlap Coefficent between image slices."""
