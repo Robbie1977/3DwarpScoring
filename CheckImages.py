@@ -2,8 +2,13 @@ import nrrd, os, glob, sys, csv
 import xscore, slicescore
 import numpy as np
 
-if os.path.isfile('/Volumes/Macintosh HD/Users/robertcourt/BTSync/usedtemplate.nrrd'):
-    data1, header1 = nrrd.read('/Volumes/Macintosh HD/Users/robertcourt/BTSync/usedtemplate.nrrd')
+try:
+  from cmtk import template
+except:
+  template = '/Volumes/Macintosh HD/Users/robertcourt/BTSync/usedtemplate.nrrd'
+
+if os.path.isfile(template):
+    data1, header1 = nrrd.read(template)
 elif os.path.isfile('/disk/data/VFBTools/Alignment/template/flyVNCtemplate20xA.nrrd'):
     data1, header1 = nrrd.read('/disk/data/VFBTools/Alignment/template/flyVNCtemplate20xA.nrrd')
 else:
