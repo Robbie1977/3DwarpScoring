@@ -7,6 +7,8 @@ try:
 except:
   template = '/Volumes/Macintosh HD/Users/robertcourt/BTSync/usedtemplate.nrrd'
 
+testtemp = template
+
 if os.path.isfile(template):
     data1, header1 = nrrd.read(template)
 elif os.path.isfile('/disk/data/VFBTools/Alignment/template/flyVNCtemplate20xA.nrrd'):
@@ -41,7 +43,18 @@ def rateAll(path,match="*BG*.nrrd",results="./OverlapResults.csv", methord=slice
       print 'no files found matching: ' + path + match
     return r
 
-def rateOne(file,results="./OverlapResults.csv", methord=slicescore.OverlapCoeff):
+def rateOne(file,results="./OverlapResults.csv", methord=slicescore.OverlapCoeff, template=template):
+    if os.path.isfile(template):
+        data1, header1 = nrrd.read(template)
+    else:
+        print 'Template file missing!'
+        data1 = []
+    if not data1==[]:
+        ctemplate = xscore.xslice(data1)
+        ztemplate = slicescore.zsampleslice(data1)
+        ytemplate = slicescore.ysampleslice(data1)
+        xtemplate = slicescore.xsampleslice(data1)
+        del data1, header1
     r=np.float128(0.0)
     if os.path.isfile(file):
       print "testing:" + os.path.basename(file)
