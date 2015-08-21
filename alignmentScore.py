@@ -1,5 +1,6 @@
 # Gives a score between 0 (bad) and 1 (excellant) for the alignment of two NRRD samples
 import CheckImages as ci
+import slicescore
 import numpy as np
 import sys
 
@@ -14,4 +15,4 @@ if __name__ == "__main__":
         print 'Error: missing arguments!'
         print 'e.g. python alignmentScore.py template.nrrd alignment.nrrd'
     else:
-        print str(score(sys.argv[1],sys.argv[2]))
+        print 'The final alignment score is ' + str(score(sys.argv[1],sys.argv[2]))
