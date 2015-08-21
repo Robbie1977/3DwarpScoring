@@ -13,6 +13,11 @@ def score(template, alignment):
 if __name__ == "__main__":
     if (len(sys.argv) < 3):
         print 'Error: missing arguments!'
-        print 'e.g. python alignmentScore.py template.nrrd alignment.nrrd'
+        print 'e.g. python alignmentScore.py alignment.nrrd template.nrrd [result.csv]''
     else:
-        print 'The final alignment score is ' + str(score(sys.argv[1],sys.argv[2]))
+        r = score(sys.argv[2],sys.argv[1])
+        print 'The final alignment score is ' + str(r)
+        if (len(sys.argv) > 3):
+        with open(str(sys.argv[3]), "a") as myfile:
+            myfile.write('{0:.100f}'.format(float(r)) + ', Alignment Score, ' + str(sys.argv[1]) + ', ' + str(sys.argv[2]) + '\n')
+        print 'Done.'
