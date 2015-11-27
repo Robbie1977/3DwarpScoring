@@ -1,6 +1,6 @@
 import numpy as np
 import scipy
-import scipy.module.stats
+import scipy.stats
 import sys
 import nrrd
 
