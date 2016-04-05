@@ -1,8 +1,10 @@
 # Gives a score between 0 (bad) and 1 (excellent) for the alignment of two NRRD samples
+import sys
+
+import numpy as np
+
 import CheckImages as ci
 import slicescore
-import numpy as np
-import sys
 
 
 def score(template, alignment):
@@ -10,8 +12,9 @@ def score(template, alignment):
     result = np.mean(
         [np.float128(ci.rateOne(alignment, results=None, methord=slicescore.OverlapCoeff, template=template)),
          np.float128(ci.rateOne(alignment, results=None, methord=slicescore.avgOverlapCoeff, template=template))])
+    if np.isnan(result):
+        result = np.float128(0.0);
     return result
-
 
 if __name__ == "__main__":
     if len(sys.argv) < 3:
