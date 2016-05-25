@@ -1,6 +1,6 @@
 import nrrd
 import sys, warnings
-from numpy import int,round,linspace, newaxis, shape, array, uint32, uint8, max, sqrt, abs, mean, dtype, int32, add, divide, subtract, sum, square, multiply, asarray, squeeze, float128, average, ones
+from numpy import int,round,linspace, newaxis, shape, array, uint32, uint8, max, sqrt, abs, mean, dtype, int32, add, divide, subtract, sum, square, multiply, asarray, squeeze, float128, average, ones, fmin
 #from matplotlib.pyplot import imshow, figure, show, colorbar
 #import matplotlib.cm as cm
 
@@ -68,7 +68,7 @@ def minOverlapCoeff(data1,data2):
         print 'Note: both equal only as blank'
         R.append(1.0)
       print R
-    return min(R)
+    return fmin(R)
 
 def avgOverlapCoeff(data1,data2):
     """Returns the min Overlap Coefficent between image slices."""
