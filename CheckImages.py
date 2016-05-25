@@ -64,7 +64,7 @@ def rateOne(file,results="./OverlapResults.csv", methord=slicescore.OverlapCoeff
       yalignment = slicescore.ysampleslice(data2)
       xalignment = slicescore.xsampleslice(data2)
       del data2, header2
-      r = np.min(np.array([xscore.symTest(slicescore.OverlapCoeff,calignment),methord(ctemplate,calignment),methord(ztemplate,zalignment),methord(ytemplate,yalignment),methord(xtemplate,xalignment)]))
+      r = np.fmin(np.array([xscore.symTest(slicescore.OverlapCoeff,calignment),methord(ctemplate,calignment),methord(ztemplate,zalignment),methord(ytemplate,yalignment),methord(xtemplate,xalignment)]))
       if not results==None:
         with open(results, 'a') as csvfile:
           spamwriter = csv.writer(csvfile)
