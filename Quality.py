@@ -3,8 +3,8 @@ import sys
 import nrrd
 
 if (len(sys.argv) < 4):
-    print 'Error: missing arguments!'
-    print 'e.g. python [measure].py image.nrrd template.nrrd results.csv'
+    print('Error: missing arguments!')
+    print('e.g. python [measure].py image.nrrd template.nrrd results.csv')
 else:
 
     print 'Checking alignment for ', str(sys.argv[1]), ' against the template (', str(sys.argv[2]), ')...'
@@ -41,14 +41,14 @@ else:
         s1 = np.power(d1,2, dtype=np.float64)
         r1 = np.sqrt(np.mean(s1), dtype=np.float64)
     
-        print 'The alignment has a RMS Diff value of:', r1, ' (0=perfect)'
+        print('The alignment has a RMS Diff value of:', r1, ' (0=perfect)')
         
-        print 'Outputing results to ', str(sys.argv[3])
+        print('Outputing results to ', str(sys.argv[3]))
         
         with open(str(sys.argv[3]), "a") as myfile: 
             myfile.write(str(r1) + ', RMS Diff, ' + str(sys.argv[1]) + ', ' + str(sys.argv[2]) + '\n')
         
-        print 'Done.'
+        print('Done.')
         
   
 
