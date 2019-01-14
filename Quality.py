@@ -11,11 +11,12 @@ else:
   
     readdata, options = nrrd.read(str(sys.argv[2]))
     
-    imt = readdata
+    imt = readdata.copy()
     
     readdata, options = nrrd.read(str(sys.argv[1])) 
-    im1 = readdata
-      
+    im1 = readdata.copy()
+    readdata = None
+    
     if (imt.size != im1.size):
         print('\n\nError: Images must be the same size!!')
     else:
