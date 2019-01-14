@@ -7,7 +7,7 @@ if (len(sys.argv) < 4):
     print('e.g. python [measure].py image.nrrd template.nrrd results.csv')
 else:
 
-    print 'Checking alignment for ', str(sys.argv[1]), ' against the template (', str(sys.argv[2]), ')...'
+    print('Checking alignment for ', str(sys.argv[1]), ' against the template (', str(sys.argv[2]), ')...')
   
     readdata, options = nrrd.read(str(sys.argv[2]))
     
@@ -17,7 +17,7 @@ else:
     im1 = readdata
       
     if (imt.size <> im1.size):
-        print '\n\nError: Images must be the same size!!'
+        print('\n\nError: Images must be the same size!!')
     else:
     
         lthreshold = 40
