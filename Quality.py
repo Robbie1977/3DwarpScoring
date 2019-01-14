@@ -16,7 +16,7 @@ else:
     readdata, options = nrrd.read(str(sys.argv[1])) 
     im1 = readdata
       
-    if (imt.size <> im1.size):
+    if (imt.size != im1.size):
         print('\n\nError: Images must be the same size!!')
     else:
     
