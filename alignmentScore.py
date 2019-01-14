@@ -19,7 +19,7 @@ def score(template, alignment):
 if __name__ == "__main__":
     if len(sys.argv) < 3:
         print 'Error: missing arguments!'
-        print 'e.g. python alignmentScore.py alignment.nrrd template.nrrd [results.csv]''
+        print 'e.g. python alignmentScore.py alignment.nrrd template.nrrd [results.csv]'
     else:
         r = score(sys.argv[2], sys.argv[1])
         print 'The final alignment score is ' + str(r)
