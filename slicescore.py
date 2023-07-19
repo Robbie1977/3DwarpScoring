@@ -67,12 +67,12 @@ def xsampleslice(data):
     return array([a, b, c, d])
 
 
-def rms_diff(data1, data2):
+def rmsdiff(data1, data2):
     """Returns the RMS difference between two images."""
     return sqrt(mean(abs(data1 - (data2 + 0.0)) ** 2.0))
 
 
-def overlap_coeff(data1, data2):
+def overlapcoeff(data1, data2):
     """Returns the Overlap Coefficent between two images."""
     nd1 = squeeze(asarray(data1, dtype=float128))
     nd2 = squeeze(asarray(data2, dtype=float128))
@@ -81,7 +81,7 @@ def overlap_coeff(data1, data2):
     return r
 
 
-def min_overlap_coeff(data1, data2):
+def minoverlapcoeff(data1, data2):
     """Returns the min Overlap Coefficent between image slices."""
     r = []
     print(shape(data1))
@@ -105,7 +105,7 @@ def min_overlap_coeff(data1, data2):
     return fmin(r)
 
 
-def avg_overlap_coeff(data1, data2):
+def avgoverlapcoeff(data1, data2):
     """Returns the min Overlap Coefficent between image slices."""
     r = []
     weights = ones(min(shape(data1)), dtype=float)
@@ -129,7 +129,7 @@ def avg_overlap_coeff(data1, data2):
     return average(r, weights=weights)
 
 
-def sym_test(function, data):
+def symtest(function, data):
     """Applies the given function to the diagonal slices output from xslice. Can be used to assess the symmetry of a 3D image using a comparison function such as OverlapCoeff."""
     if data.ndim < 3:
         warnings.warn("must be used with data output from xslice", SyntaxWarning)
